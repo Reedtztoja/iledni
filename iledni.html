@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ile dni uplynelo?</title>
+</head>
+<body>
+    <div class="S">
+        <p>Podaj date:</p>
+        <input type="date" id="data">
+        <div>
+            <button onclick="oblicz()">Oblicz</button>
+        </div>
+        <p>Uplynelo:</p>
+        <label for="wynik"></label>
+        <input type="text" id="wynik" readonly>
+    </div>
+    <script>
+       /* var today = new Date();
+        var today2 = today.getDate() + '.' + today.getMonth() + '.' + today.getFullYear();
+        document.getElementById("wynik").value = today2 - document.getElementById("data").value; */
+    function oblicz() {
+        var today = new Date();
+        var data = document.getElementById("data").valueAsDate;
+        var diff = Math.floor((today.getTime() - data.getTime()) / 1000 / 60 / 60 / 24);
+        console.log(diff);
+        document.getElementById("wynik").value = diff
+    }
+</script>
+</body>
+<style>
+    .S {
+    text-align: center;
+    padding: 400px;
+    background-color: beige;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+</html>
