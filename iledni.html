@@ -8,14 +8,24 @@
 </head>
 <body>
     <div class="S">
+        <p>Aktualna data i godzina:</p>
+        <input type="text" id="now" readonly>
         <p>Podaj date:</p>
         <input type="date" id="data">
         <div>
-            <button onclick="oblicz()">Oblicz</button>
+            <button onclick="oblicz()">Oblicz dni</button>
         </div>
-        <p>Uplynelo:</p>
+        <div>
+            <button onclick="oblicz1()"> Oblicz godziny</button>
+        </div>
+        <p>Od podanej daty uplynelo dni:</p>
         <label for="wynik"></label>
         <input type="text" id="wynik" readonly>
+        <div>
+        <p>Od podanej daty uplynelo godzin:</p>
+        <label for="wynik1"></label>
+        <input type="text" id="wynik1" readonly>
+        </div>
     </div>
     <script>
        /* var today = new Date();
@@ -28,13 +38,24 @@
         console.log(diff);
         document.getElementById("wynik").value = diff
     }
+    function oblicz1() {
+        var today = new Date();
+        var data = document.getElementById("data").valueAsDate;
+        var diff = Math.floor((today.getTime() - data.getTime()) / 1000 / 60 / 60);
+        console.log(diff);
+        document.getElementById("wynik1").value = diff
+    }
+    var today = new Date();
+    var data = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var czas = data+' '+time;
+    document.getElementById("now").value = czas
 </script>
 </body>
 <style>
     .S {
     text-align: center;
-    padding: 400px;
-    background-color: beige;
+    padding: 250px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>
